@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Cursos Online</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text:400,500,700&display=swap" rel="stylesheet">
+    <style>
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+   --red:#8f2eff;
+   --black:#252a34;
+   --blue:#08d9d6;
+   --white:#eaeaea;
+   --title:35px;
+   --text:19px;
+}
+body{
+    background: #ffff;
+    overflow-x: hidden;
+    font-family: 'Red Hat Text', sans-serif;
+}
+.go-top{
+    position: fixed;
+    bottom: 100px;
+    right: -100%;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border:2px solid var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: 0.5s;
+}
+.go-top:hover{
+    background: var(--red);
+    color:#fff;
+    border: 2px solid var(--white);
+}
+.go-top:hover span{color:var(--white);}
+
+.go-top > span{
+   font-size: 30px;
+   color: var(--black);
+}
+
+
+/** Skew **/
+.skew-abajo{
+    position: absolute;
+	bottom: 0;
+	left: 0;
+	border-width: 0 0 10vh 100vw;
+	border-style: solid;
+	border-color: transparent transparent #fff transparent;
+}
+
+/** Navegation Menu **/
+#header{
+    position: relative;
+    width: 100%;
+}
+.menu{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+.menu .logo-box{margin-left: 20px;}
+.menu .logo-box h1 a{
+    text-decoration: none;
+    font-size: var(--title);
+    font-weight: 400;
+    color:var(--black);
+}
+.menu .list-container{margin-right: 20px;}
+.menu .list-container ul{display: flex;}
+.menu .list-container ul li{list-style: none;}
+.menu .list-container ul li a{
+    text-decoration: none;
+    margin: 0px 10px;
+    padding:8px;
+    color: var(--black);
+    border-radius: 24px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+.menu .list-container ul li a.active{
+    background: var(--red);
+    color:#fff;
+}
+.menu .list-container ul li a:hover{
+    background: var(--red);
+    color:#fff;
+}
+
+.btn-menu > .fa-bars{
+    display: none;
+}
+
+@media only screen and (max-width:900px){
+    .btn-menu > .fa-bars{
+        display: block;
+        position:absolute;
+        right: 30px;
+        top: 20px;
+        font-size: 28px;
+        color: var(--black);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+    .btn-menu > .fa-times{color: var(--red);}
+    .btn-menu > .fa-bars:hover{color:var(--red);}
+    .menu .logo-box{margin-left: 30px;}
+    .menu .list-container{
+        position: fixed;
+        top:60px;
+        left:-100%;
+        background:#fff;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+    .menu .list-container .lists{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-top:4px solid var(--red);
+    }
+    .menu .list-container ul li{
+        width: 90%;
+        border-bottom: 2px solid var(--black);
+        display: flex;
+        justify-content: center;
+    }
+    .menu .list-container ul li a{
+        font-size: 20px;
+        text-align: center;
+        padding:12px 0px;
+    }
+    .menu .list-container ul li a.active{
+        background: none;
+        color:var(--red);
+    }
+    .menu .list-container ul li a:hover{
+        background: none;
+        color:var(--red);
+    }
+}
+
+/** Navegation Menu **/
+
+/** IMG Header **/
+.img-header{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background:url(https://images.squarespace-cdn.com/content/v1/53aadf1de4b0a0a817640cca/1600252480078-35LD232UPMDIRHZSSQDG/cursos+online.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.img-header .welcome{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.img-header .welcome h1{
+    font-size: 50px;
+    color:#fff;
+    font-weight: 200;
+}
+.img-header .welcome hr{
+    width: 400px;
+    height: 2px;
+    background: #fff;
+    border: none;
+    margin-top: 5px;
+}
+.img-header .welcome p{
+    font-size: 20px;
+    color: #fff;
+    margin-top: 20px;
+}
+.img-header .welcome > button{
+    width: 170px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 24px;
+    border:none;
+    outline: none;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.img-header .welcome > button:hover{
+    background:var(--blue);
+}
+
+@media only screen and (max-width:773px ){
+    .img-header .welcome h1{font-size: 40px;}
+    .img-header .welcome > button{width: 130px; font-size: 20px;}
+}
+@media only screen and (max-width:590px){
+    .img-header .welcome h1{font-size: 30px;}
+    .img-header .welcome hr{width: 100px;}
+    .img-header .welcome p{font-size: 17px;}
+    .img-header .welcome > button{width: 100px; font-size: 17px;}
+}
+
+/** Acerca de Nosotros **/
+.acerca-de{
+    width: 100%;
+    margin-top: 120px;
+}
+.acerca-de .info-container{
+    width: 80%;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.acerca-de .info-container h1{
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.acerca-de .info-container p{
+    text-align: center;
+    font-size: 17px;
+    color: var(--black);
+    line-height: 35px;
+    margin:10px 0px;
+}
+.acerca-de .info-container .about-gallery{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+}
+.acerca-de .info-container .about-gallery img{
+    width: calc(33.333% - 10px);
+    height: 300px;
+    margin: 10px 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.acerca-de .info-container .about-more{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.acerca-de .info-container .about-more button{
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    background: var(--red);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.acerca-de .info-container .about-more button:hover{background: var(--blue);}
+
+@media only screen and (max-width:773px){
+    .acerca-de .info-container .about-gallery{flex-direction: column;}
+    .acerca-de .info-container .about-gallery img{width: 100%;}
+}
+@media only screen and (max-width:590px){
+    .acerca-de .info-container h1{font-size: 30px;}
+    .acerca-de .info-container p{font-size: 15px;}
+}
+
+/** Nuestros cursos **/
+.our-curso{
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    background: url(https://www.educaciontrespuntocero.com/wp-content/uploads/2020/04/profesional-creativo-arquitecto-disenador-grafico-ocupacion-elegir-paleta-colores-muestras-proyecto-computadora-escritorio-oficina_1423-3478-978x576.jpg);
+    background-attachment:fixed;
+    background-position: center;
+    background-size: cover;
+    margin-top: 100px;
+}
+.our-curso .deg-background{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+}
+.our-curso .ejeZcurso{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.our-curso .container-curso{
+    width: 90%;
+    margin:auto;
+    padding-top: 100px;
+}
+.our-curso .container-curso .curso-title{
+    border:2px solid #fff;
+    padding:10px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+.our-curso .container-curso .curso-title h2{
+    font-size: 40px;
+    color: #fff;
+    font-weight: normal;
+}
+.our-curso .container-curso .curso-title hr{
+   background:#fff;
+   width: 50%;
+   height: 3px;
+   margin: 10px auto;
+}
+.our-curso .container-curso .curso-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    padding-bottom: 100px;
+}
+.our-curso .container-curso .curso-img img{
+  width: calc(30% - 10px);
+  margin:10px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media only screen and (max-width:773px){
+    .our-curso .container-curso .curso-img img{width: 80%; margin-bottom: 30px;}
+}
+@media only screen and (max-width:446px){
+    .our-curso .container-curso .curso-title h2{font-size: 30px;}
+}
+
+/** creadoras **/
+.creadoras{
+    width: 100%;
+    margin-top: 120px;
+}
+.creadoras .creadoras-title{
+    width: 50%;
+    margin:auto;
+    text-align: center;
+}
+.creadoras .creadoras-title h2{
+    font-size: 50px;
+    font-weight: normal;
+    color: var(--black);
+    margin-bottom: 10px;
+}
+.creadoras .creadoras-title hr{
+    width: 60%;
+    height: 2px;
+    margin:auto;
+    background: var(--black);
+}
+.creadoras .box-creadora{
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.creadoras .box-creadora .card-creadora{
+    width: 45%;
+    margin: 20px;
+}
+.creadoras .box-creadora .card-creadora .card-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.creadoras .box-creadora .card-creadora .card-img img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.creadoras .box-creadora .card-creadora .creadora-text{
+    border: 2px solid var(--red);
+    padding:20px;
+    border-radius: 20px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+.creadoras .box-creadora .card-creadora .creadora-text h4{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--red);
+    text-align: center;
+    margin-bottom: 10px;
+    transition: 0.1s;
+}
+.creadoras .box-creadora .card-creadora .creadora-text p{
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--black);
+}
+.creadoras .box-creadora .card-creadora .creadora-text:hover{
+    border: 2px solid var(--blue);
+}
+.creadoras .box-creadora .card-creadora .creadora-text:hover h4{
+    color: var(--blue);
+}
+
+@media only screen and (max-width:890px){
+    .creadoras .box-creadora .card-creadora .card-img img{width: 200px; height: 200px;}
+    .creadoras .box-creadora .card-creadora{width: 100%;}
+    .creadoras .box-creadora .card-creadora .creadora-text h4{font-size: 25px;}
+    .creadoras .box-creadora .card-creadora .creadora-text p{font-size: 17px; line-height: 35px;}
+}
+
+/** Footer **/
+.footer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/footer.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.footer .deg-footer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+.footer .ejeZfooter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.footer .footer-content{
+    padding-top: 100px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+.footer .footer-content .footer-title{
+    width: 50%;
+    margin: auto;
+    border:2px solid #fff;
+    padding:15px;
+}
+.footer .footer-content .footer-title h2{
+    font-size: 35px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.footer .footer-content .footer-title hr{
+    background: #fff;
+    height: 2px;
+    width: 80%;
+    margin:auto;
+}
+.footer .formulario-content{
+    width: 60%;
+    margin: 50px auto;
+    background: #fff;
+    padding:30px;
+    border-radius: 50px;
+    border: 1.5px solid var(--red);
+}
+.footer .formulario-content #formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer .formulario-content #formulario label{
+    font-size: 20px;
+    text-align: center;
+    color: var(--black);
+    margin: 30px 0px 10px 0px;
+}
+.footer .formulario-content #formulario input{
+    width: 90%;
+    height: 40px;
+    margin:auto;
+    border-radius: 24px;
+    outline: none;
+    border:1.5px solid var(--red);
+    text-align: center;
+    font-size: 18px;
+    color: var(--black);
+}
+.footer .formulario-content #formulario textarea{
+    width: 90%;
+    height: 200px;
+    margin:auto;
+    padding: 20px;
+    border-radius: 24px;
+    outline: none;
+    border:1.5px solid var(--red);
+    font-size: 15px;
+    color: var(--black);
+}
+.footer .formulario-content #formulario .send{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+.footer .formulario-content #formulario button{
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    background: var(--red);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.footer .formulario-content #formulario button:hover{
+    background: var(--blue);
+}
+.footer .formulario-content #formulario .mensaje-form{
+    width: 100%;
+    margin:auto;
+    padding:20px;
+}
+.footer .formulario-content #formulario .mensaje-form p{
+    font-size:19px;
+    color: var(--black);
+    line-height: 35px;
+}
+.footer .footer-text{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background:rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #fff;
+}
+.footer .footer-text p{
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+@media only screen and (max-width:900px){
+    .footer .formulario-content{width: 85%; padding:20px;}
+    .footer .formulario-content #formulario input{width: 100%;}
+    .footer .formulario-content #formulario textarea{width: 100%;}
+}
+@media only screen and (max-width:590px){
+    .footer .formulario-content{width: 95%; padding:20px;}
+    .footer .formulario-content #formulario label{font-size: 17px;}
+    .footer .formulario-content #formulario input{width: 100%; font-size: 17px;}
+    .footer .formulario-content #formulario textarea{width: 100%;}
+    .footer .formulario-content #formulario .mensaje-form p{font-size: 17px;}
+    .footer .footer-text{width: 100%; padding: 0px 30px;}
+    .footer .footer-text p{font-size: 17px;}
+}
+    </style>
+</head>
+<body>
+    <!-- Menu de Navegacion -->
+    <header id="header">
+    <nav class="menu">
+     <div class="logo-box">
+       <h1><a href="#">Cursos Online</a></h1>
+       <span class="btn-menu"><i class="fas fa-bars"></i></span>
+     </div>
+     
+     <div class="list-container">
+        <ul class="lists">
+            <li><a href="#">Nuestras Historia</a></li>
+            <li><a href="#">Cursos</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+     </div>
+    </nav>
+ 
+    <!-- Imagen Header -->
+    <div class="img-header">
+     <div class="welcome">
+       <h1>Bienvenidos A Los Cursos Online</h1>
+       <hr>
+       <p>Aprende sin límites y a tu propio ritmo</p>
+     </div>       
+    </div>
+    </header>
+ <main>
+    <!-- Acerca de nosotros -->
+    <section class="acerca-de">
+    <div class="info-container">
+      <h1>Acerca de Nosotros</h1>
+      <p>Cursos Online es una incorporación de educación virtual, constituida en Honduras - Comayagua, dedicada a compartir el conocimiento.</p>
+      <p>Nuestra misión es compartir el conocimiento para facilitar a cualquier persona el acceso a educación de alta calidad, sin importar su región, edad, ocupación o ingresos.</p>
+      <div class="about-gallery">
+        <img src="https://experienciajoven.com/wp-content/uploads/2020/04/cursos-de-ingles-en-linea-gratis.jpg" alt="">
+        <img src="https://www.welivesecurity.com/wp-content/uploads/2020/12/Cursos-online-ciberseguridad-gratuita-diciembre.jpg" alt="">
+        <img src="https://www.laboratorioti.com/wp-content/uploads/2015/10/curso-online.jpg" alt="">
+      </div>
+    </div>
+    </section>
+
+   <!-- Nuestros cursos -->
+   <section class="our-curso">
+   <div class="deg-background"></div>
+   
+   <div class="ejeZcurso">
+      <div class="container-curso">
+        <div class="curso-title">
+          <h2>Nuestros Cursos Disponibles</h2>
+          <hr>
+        </div>
+          <div class="curso-img">
+            <img src="https://exame.com/wp-content/uploads/2017/12/bychykhin_olexandr.jpg">
+            <img src="http://4.bp.blogspot.com/-3yyCRL8noVk/Vfj7-JoacGI/AAAAAAAALmI/JWUvoxSHTFY/s1600/psicologia_infantil.webp">
+            <img src="https://healthcaresuccess.com/wp-content/uploads/hospital-digital-marketing-min.jpg">
+            <img src="http://educagratis.cl/moodle/file.php/1/Clases-Gratris-para-aprender-Matematicas-Algebra-Calculo-Geometria.jpg">
+            <img src="https://i0.wp.com/decursosgratis.com/wp-content/uploads/2017/09/Cursos-de-dise%C3%B1o-web-gratis.jpg">
+            <img src="https://www.headsem.com/wp-content/uploads/2018/02/cursos-programaci%C3%B3n-para-juegos.jpg">
+            <img src="https://www.grandeslogros.co/wp-content/uploads/2020/05/cursos-de-excel-gratis.png">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnSwYfG-Dt9MCHVHZfW5bqwUUv80LTvTbCyA&usqp=CAU">
+            <img src="https://finde.latercera.com/wp-content/uploads/2018/10/Foto%CC%81grafa-700x450.jpg">
+         </div>
+   </section>
+
+   <!-- Creadoras -->
+   <section class="creadoras">
+    <div class="creadoras-title">
+     <h2>Creadoras</h2>
+     <hr>
+    </div>
+
+     <div class="box-creadora">
+      <div class="card-creadora">
+        <div class="card-img"><img src="https://scontent.fsap10-1.fna.fbcdn.net/v/t1.6435-9/121237066_807713703102501_6999250238736142008_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=c-06G9Y41UwAX8QwYgw&tn=Is__ZqEuMFXjPmxz&_nc_ht=scontent.fsap10-1.fna&oh=86eeb37bec590b6e1efc28361ab73f06&oe=61657DB4"></div>
+        <div class="creadora-text">
+        <h4>Sofia Pacheco</h4>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec tellus quis orci tristique accumsan a quis tortor. Quisque ultricies diam vitae dolor varius, et molestie dolor faucibus."</p>
+        </div>
+      </div>
+
+      <div class="card-creadora">
+          <div class="card-img"><img src="https://scontent.fsap10-1.fna.fbcdn.net/v/t1.6435-9/118274846_919409655247084_2497831256588547086_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=UkbrZKr5Ch0AX9MfD55&_nc_oc=AQnrAelI80oNhuhJ1Scy0w_OK6ypkJGdlPaJeVeoeU8hGfRySQN1MVUx-5MHrFuFiYM&tn=Is__ZqEuMFXjPmxz&_nc_ht=scontent.fsap10-1.fna&oh=fd59516ab1b03049cf53159c6444f96f&oe=6167444A"></div>
+          <div class="creadora-text">
+          <h4>Alexandra Rodriguez</h4>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec tellus quis orci tristique accumsan a quis tortor. Quisque ultricies diam vitae dolor varius, et molestie dolor faucibus."</p>
+          </div>
+        </div>
+
+        <div class="card-creadora">
+            <div class="card-img"><img src="Foto1.jpeg"></div>
+            <div class="creadora-text">
+            <h4>Lizzie Soad</h4>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec tellus quis orci tristique accumsan a quis tortor. Quisque ultricies diam vitae dolor varius, et molestie dolor faucibus."</p>
+            </div>
+          </div>
+     </div>
+   </section>
+ </main> 
+ 
+ <!-- Footer -->
+ <footer class="footer">
+    <div class="deg-footer"></div>
+   <div class="footer-text">
+     <p>&copy; Cursos Online | Todos los derechos reservados.</p>
+   </div>
+  </div>
+</div>
+ </footer>
+</body>
+</html>
